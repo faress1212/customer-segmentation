@@ -1,0 +1,24 @@
+# Configuration for the Customer Segmentation project.
+# Centralizes paths and hyperparameters so they aren't hardcoded across
+# multiple files.
+
+data:
+  raw_path: "data/raw/Mall_Customers.csv"
+  processed_path: "data/processed/mall_customers_processed.csv"
+
+features:
+  clustering_features:
+    - "Annual Income (k$)"
+    - "Spending Score (1-100)"
+
+clustering:
+  kmeans:
+    n_clusters: 5
+    random_state: 42
+  dbscan:
+    eps: 0.3
+    min_samples: 5
+  elbow_k_range: [1, 11]   # tested as range(1, 11)
+
+output:
+  figures_path: "reports/figures"

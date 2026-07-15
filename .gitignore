@@ -1,0 +1,14 @@
+# بيانات
+data/raw/*.csv
+
+# موديلات محفوظة
+models/*.pkl
+
+# بايثون
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# نظام التشغيل
+.DS_Store
