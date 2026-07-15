@@ -16,3 +16,18 @@ CLUSTERING_FEATURES = ["Annual Income (k$)", "Spending Score (1-100)"]
 
 RANDOM_STATE = 42
 N_CLUSTERS = 5
+
+def load_config() -> dict:
+    """
+    ترجع كل الإعدادات في شكل dictionary عشان تستخدم بسهولة في النوتبوك.
+    """
+    return {
+        "data": {
+            "raw_path": RAW_DATA_PATH,
+        },
+        "models_dir": MODELS_DIR,
+        "figures_dir": FIGURES_DIR,
+        "clustering_features": CLUSTERING_FEATURES,
+        "random_state": RANDOM_STATE,
+        "n_clusters": N_CLUSTERS,
+    }
