@@ -41,8 +41,8 @@ def elbow_method(X_scaled: np.ndarray, k_range: range = range(1, 11), save: bool
 
     plt.figure(figsize=(8, 5))
     plt.plot(list(k_range), inertias, marker="o")
-    plt.title("طريقة الكوع (Elbow Method) لاختيار أفضل K")
-    plt.xlabel("عدد المجموعات (K)")
+    plt.title("Elbow Method to choose the best K")
+    plt.xlabel("Number of Clusters (K)")
     plt.ylabel("Inertia")
 
     if save:

@@ -39,14 +39,14 @@ def main():
 
     # 4. طريقة الكوع لمساعدتنا نختار أفضل K (تطبع قيم الـ inertia وترسمها)
     inertias = elbow_method(X_scaled)
-    print("\nInertia لكل K:", inertias)
+    print("\nInertia for each K:", inertias)
 
     # 5. تجميع بـ KMeans
     kmeans_labels, kmeans_model = run_kmeans(X_scaled, n_clusters=N_CLUSTERS)
     df["KMeans_Labels"] = kmeans_labels
     kmeans_score = evaluate_clustering(X_scaled, kmeans_labels)
     print(f"\nKMeans silhouette score: {kmeans_score:.4f}")
-    plot_clusters(df, "KMeans_Labels", "تقسيم العملاء باستخدام KMeans")
+    plot_clusters(df, "KMeans_Labels", "Divide Customers By KMeans")
 
     # 6. تجميع بـ DBSCAN
     dbscan_labels, dbscan_model = run_dbscan(X_scaled, eps=0.3, min_samples=5)
@@ -54,8 +54,8 @@ def main():
     dbscan_score = evaluate_clustering(X_scaled, dbscan_labels)
     n_noise = (dbscan_labels == -1).sum()
     print(f"DBSCAN silhouette score: {dbscan_score}")
-    print(f"عدد نقط الضوضاء (Noise) في DBSCAN: {n_noise} / {len(dbscan_labels)}")
-    plot_clusters(df, "DBSCAN_Labels", "تقسيم العملاء باستخدام DBSCAN")
+    print(f"Noise in DBSCAN: {n_noise} / {len(dbscan_labels)}")
+    plot_clusters(df, "DBSCAN_Labels", "Customer Divided by DBSCAN")
 
     # 7. حفظ موديل KMeans (الأنسب هنا لأن عدد المجموعات معروف ومحدد)
     save_model(kmeans_model, "kmeans_model.pkl")
