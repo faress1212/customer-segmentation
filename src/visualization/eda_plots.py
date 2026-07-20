@@ -26,7 +26,7 @@ def plot_distributions(df: pd.DataFrame, columns: list, save: bool = True) -> No
     for col in columns:
         plt.figure(figsize=(8, 5))
         sns.histplot(df[col], kde=True)
-        plt.title(f"توزيع {col}")
+        plt.title(f"{col} Distribution")
         if save:
             safe_name = col.replace(" ", "_").replace("(", "").replace(")", "").replace("$", "")
             plt.savefig(os.path.join(FIGURES_DIR, f"dist_{safe_name}.png"), bbox_inches="tight")
@@ -44,7 +44,7 @@ def plot_income_vs_spending(df: pd.DataFrame, save: bool = True) -> None:
     """
     plt.figure(figsize=(8, 6))
     sns.scatterplot(data=df, x="Annual Income (k$)", y="Spending Score (1-100)")
-    plt.title("الدخل السنوي مقابل درجة الإنفاق")
+    plt.title("Annual Income (k$) VS Spending Score (1-100)")
 
     if save:
         os.makedirs(FIGURES_DIR, exist_ok=True)
